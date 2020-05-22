@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using TheWorldLevel.Data;
 using TheWorldLevel.Models;
 
-namespace TheWorldLevel.Pages.rac
+namespace TheWorldLevel.Pages.Sessions
 {
     public class CreateModel : PageModel
     {

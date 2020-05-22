@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using TheWorldLevel.Data;
 using TheWorldLevel.Models;
 
-namespace TheWorldLevel.Pages.rac
+namespace TheWorldLevel.Pages.Sessions
 {
     public class EditModel : PageModel
     {

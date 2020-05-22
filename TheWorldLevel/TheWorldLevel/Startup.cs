@@ -12,6 +12,8 @@ using TheWorldLevel.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TheWorldLevel.Data.interfaces;
+using TheWorldLevel.Data.Repository;
 
 namespace TheWorldLevel
 {
@@ -32,6 +34,7 @@ namespace TheWorldLevel
                 Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddTransient<IRooms, RoomRepository>();
             services.AddRazorPages();
         }
 

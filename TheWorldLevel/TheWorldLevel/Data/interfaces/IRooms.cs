@@ -6,7 +6,7 @@ using TheWorldLevel.Models;
 
 namespace TheWorldLevel.Data.interfaces
 {
-    interface IRooms
+    public interface IRooms
     {
         IEnumerable<Room> Rooms { get; }
         Room GetRoom(int carId);

@@ -1,0 +1,12 @@
+﻿@page
+@model TheWorldLevel.Pages.Rooms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Комнаты</h1>
+@foreach (var room in Model.Room)
+{
+    <a asp-page="./Details" asp-route-id="@room.Id">@room.Name</a>
+}

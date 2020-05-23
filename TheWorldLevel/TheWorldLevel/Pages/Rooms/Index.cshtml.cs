@@ -14,12 +14,12 @@ namespace TheWorldLevel.Pages.Rooms
 {
     public class IndexModel : PageModel
     {
-        private readonly TheWorldLevel.Data.ApplicationDbContext _context;
+        //private readonly TheWorldLevel.Data.ApplicationDbContext _context;
         private readonly IRooms _rooms;
 
-        public IndexModel(TheWorldLevel.Data.ApplicationDbContext context, IRooms rooms)
+        public IndexModel(IRooms rooms)
         {
-            _context = context;
+            //_context = context;
             _rooms = rooms;
         }
 

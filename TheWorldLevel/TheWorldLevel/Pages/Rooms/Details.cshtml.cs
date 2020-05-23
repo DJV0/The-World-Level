@@ -28,7 +28,7 @@ namespace TheWorldLevel.Pages.Rooms
                 return NotFound();
             }
 
-            Room = await _context.Room.FirstOrDefaultAsync(m => m.Id == id);
+            Room = await _context.Room.Include(r => r.Image).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Room == null)
             {

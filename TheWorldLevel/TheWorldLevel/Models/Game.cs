@@ -8,6 +8,7 @@ namespace TheWorldLevel.Models
         public Game()
         {
             Gamecategory = new HashSet<Gamecategory>();
+            Image = new HashSet<Image>();
         }
 
         public int Id { get; set; }
@@ -18,5 +19,6 @@ namespace TheWorldLevel.Models
         public decimal? Price { get; set; }
 
         public virtual ICollection<Gamecategory> Gamecategory { get; set; }
+        public virtual ICollection<Image> Image { get; set; }
     }
 }

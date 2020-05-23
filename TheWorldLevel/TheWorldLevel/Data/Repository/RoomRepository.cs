@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace TheWorldLevel.Data.Repository
         {
             _dbcontext = dbcontext;
         }
-        public IEnumerable<Room> Rooms => _dbcontext.Room;
+        public IEnumerable<Room> Rooms => _dbcontext.Room.Include(r => r.Image);
 
         public Room GetRoom(int roomId) => _dbcontext.Room.FirstOrDefault(r => r.Id == roomId);
     }

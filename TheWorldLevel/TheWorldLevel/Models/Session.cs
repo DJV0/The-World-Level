@@ -9,6 +9,7 @@ namespace TheWorldLevel.Models
         {
             Sessionservice = new HashSet<Sessionservice>();
         }
+
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }

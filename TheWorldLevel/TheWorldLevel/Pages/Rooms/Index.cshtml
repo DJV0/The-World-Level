@@ -8,5 +8,8 @@
 <h1>Комнаты</h1>
 @foreach (var room in Model.Room)
 {
+<div>
     <a asp-page="./Details" asp-route-id="@room.Id">@room.Name</a>
+    <img src="~/stock/joao-ferrao-pxnDAT77rVg-unsplash.jpg" asp-append-version="true" width="250" height="250" />
+</div>
 }

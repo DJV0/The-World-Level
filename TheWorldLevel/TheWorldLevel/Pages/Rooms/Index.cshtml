@@ -1,0 +1,18 @@
+﻿@page
+@model TheWorldLevel.Pages.Rooms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Комнаты</h1>
+@foreach (var room in Model.Room)
+{
+<div>
+    <a asp-page="./Details" asp-route-id="@room.Id">@room.Name</a>
+    @foreach (var image in room.Image)
+    {
+        <img src="@("~/stock/" + image.FileName)" asp-append-version="true" width="250" height="250" />
+    }
+</div>
+}

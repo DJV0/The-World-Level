@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TheWorldLevel.Data;
 using TheWorldLevel.Models;
 
-namespace TheWorldLevel.Pages.rac
+namespace TheWorldLevel.Pages.Rooms
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace TheWorldLevel.Pages.rac
             _context = context;
         }
 
-        public Session Session { get; set; }
+        public Room Room { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,11 +28,9 @@ namespace TheWorldLevel.Pages.rac
                 return NotFound();
             }
 
-            Session = await _context.Session
-                .Include(s => s.Room)
-                .Include(s => s.User).FirstOrDefaultAsync(m => m.Id == id);
+            Room = await _context.Room.Include(r => r.Image).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Session == null)
+            if (Room == null)
             {
                 return NotFound();
             }

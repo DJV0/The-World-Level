@@ -25,6 +25,7 @@ namespace TheWorldLevel.Data
         public virtual DbSet<Efmigrationshistory> Efmigrationshistory { get; set; }
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<Gamecategory> Gamecategory { get; set; }
+        public virtual DbSet<Image> Image { get; set; }
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Service> Service { get; set; }
@@ -325,6 +326,36 @@ namespace TheWorldLevel.Data
                     .HasForeignKey(d => d.GameId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_game_has_category_game1");
+            });
+
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.ToTable("image");
+
+                entity.HasIndex(e => e.FileName)
+                    .HasName("FileName_UNIQUE")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.GameId)
+                    .HasName("fk_image_game1_idx");
+
+                entity.HasIndex(e => e.RoomId)
+                    .HasName("fk_image_room1_idx");
+
+                entity.Property(e => e.FileName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Game)
+                    .WithMany(p => p.Image)
+                    .HasForeignKey(d => d.GameId)
+                    .HasConstraintName("fk_image_game1");
+
+                entity.HasOne(d => d.Room)
+                    .WithMany(p => p.Image)
+                    .HasForeignKey(d => d.RoomId)
+                    .HasConstraintName("fk_image_room1");
             });
 
             modelBuilder.Entity<Review>(entity =>

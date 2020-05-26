@@ -7,6 +7,7 @@ namespace TheWorldLevel.Models
     {
         public Room()
         {
+            Image = new HashSet<Image>();
             Session = new HashSet<Session>();
         }
 
@@ -16,6 +17,7 @@ namespace TheWorldLevel.Models
         public byte PlayersNumber { get; set; }
         public decimal Price { get; set; }
 
+        public virtual ICollection<Image> Image { get; set; }
         public virtual ICollection<Session> Session { get; set; }
     }
 }
